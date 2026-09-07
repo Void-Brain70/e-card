@@ -11,8 +11,8 @@ import { email } from '@/routes/password';
 
 defineOptions({
     layout: {
-        title: 'Forgot password',
-        description: 'Enter your email to receive a password reset link',
+        title: 'Reset your password',
+        description: "Enter your email and we'll send you a reset link",
     },
 });
 
@@ -24,15 +24,15 @@ defineProps<{
 <template>
     <Head title="Forgot password" />
 
-    <div
-        v-if="status"
-        class="mb-4 text-center text-sm font-medium text-green-600"
-    >
-        {{ status }}
-    </div>
+    <div class="flex flex-col gap-5">
+        <div
+            v-if="status"
+            class="rounded-lg bg-emerald-50 px-4 py-3 text-center text-sm font-medium text-emerald-700 dark:bg-emerald-900/20 dark:text-emerald-400"
+        >
+            {{ status }}
+        </div>
 
-    <div class="space-y-6">
-        <Form v-bind="email.form()" v-slot="{ errors, processing }">
+        <Form v-bind="email.form()" v-slot="{ errors, processing }" class="grid gap-4">
             <div class="grid gap-2">
                 <Label for="email">Email address</Label>
                 <Input
@@ -41,26 +41,30 @@ defineProps<{
                     name="email"
                     autocomplete="off"
                     autofocus
-                    placeholder="email@example.com"
+                    placeholder="you@example.com"
+                    class="h-11"
                 />
                 <InputError :message="errors.email" />
             </div>
 
-            <div class="my-6 flex items-center justify-start">
-                <Button
-                    class="w-full"
-                    :disabled="processing"
-                    data-test="email-password-reset-link-button"
-                >
-                    <Spinner v-if="processing" />
-                    Email password reset link
-                </Button>
-            </div>
+            <Button
+                class="h-11 w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white border-0 font-semibold shadow-md shadow-emerald-500/20"
+                :disabled="processing"
+                data-test="email-password-reset-link-button"
+            >
+                <Spinner v-if="processing" />
+                Send reset link
+            </Button>
         </Form>
 
-        <div class="text-muted-foreground space-x-1 text-center text-sm">
-            <span>Or, return to</span>
-            <TextLink :href="login()">log in</TextLink>
+        <div class="text-muted-foreground text-center text-sm">
+            Remembered your password?
+            <TextLink
+                :href="login()"
+                class="font-medium text-emerald-600 hover:text-emerald-700 dark:text-emerald-400"
+            >
+                Back to sign in
+            </TextLink>
         </div>
     </div>
 </template>
