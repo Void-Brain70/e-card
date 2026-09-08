@@ -14,7 +14,6 @@ defineOptions({
     },
 });
 </script>
-
 <template>
     <Head title="Dashboard" />
 
