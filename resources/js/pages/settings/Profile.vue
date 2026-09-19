@@ -38,7 +38,6 @@ const user = computed(() => page.props.auth.user);
             title="Profile"
             description="Update your name and email address"
         />
-
         <Form
             v-bind="ProfileController.update.form()"
             class="space-y-6"
