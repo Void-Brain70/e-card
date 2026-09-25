@@ -9,7 +9,6 @@ use Illuminate\Foundation\Http\FormRequest;
 class ProfileUpdateRequest extends FormRequest
 {
     use ProfileValidationRules;
-
     /**
      * Get the validation rules that apply to the request.
      *
