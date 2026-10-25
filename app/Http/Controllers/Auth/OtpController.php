@@ -58,4 +58,19 @@ class OtpController extends Controller
 
         return back()->with('status', 'A new verification code has been sent to your email address.');
     }
+
+    public function resend(Request $request): RedirectResponse
+    {
+        $user = Auth::user();
+
+        if ($user->hasVerifiedEmail()) {
+            return redirect()->route('dashboard');
+        }
+
+        $otp = OtpCode::generate($user->email);
+
+        Mail::to($user->email)->send(new OtpMail($otp->code, $user->name));
+
+        return back()->with('status', 'A new verification code has been sent to your email address.');
+    }
 }
