@@ -20,7 +20,7 @@ class OtpController extends Controller
             'status' => $request->session()->get('status'),
         ]);
     }
-
+    #Testing 
     public function verify(Request $request): RedirectResponse
     {
         $request->validate([
