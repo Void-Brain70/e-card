@@ -37,7 +37,7 @@ class User extends Authenticatable implements PasskeyUser
     /**
      * Get the attributes that should be cast.
      *
-     * @return array<string, string>
+     * @return array<string, string> Test the case
      */
     protected function casts(): array
     {
