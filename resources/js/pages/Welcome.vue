@@ -25,7 +25,7 @@ const cards = [
 ];
 
 const features = [
-    { icon: Sparkles, title: 'Beautiful Templates', desc: 'Choose from hundreds of professionally designed card templates for every occasion.', color: 'from-emerald-400 to-teal-500' },
+    { icon: Sparkles, title: 'Beautiful Templates', desc: 'Choose from a hundreds of professionally designed card templates for every occasion.', color: 'from-emerald-400 to-teal-500' },
     { icon: Zap, title: 'Instant Delivery', desc: 'Send your e-card instantly via email or share a unique link with anyone, anywhere.', color: 'from-teal-400 to-cyan-500' },
     { icon: Palette, title: 'Fully Customizable', desc: 'Personalize every card with your own photos, text, colors, fonts and animations.', color: 'from-green-400 to-emerald-500' },
     { icon: Smartphone, title: 'Works Everywhere', desc: 'Cards look stunning on any device — phones, tablets, laptops, you name it.', color: 'from-cyan-400 to-teal-500' },
